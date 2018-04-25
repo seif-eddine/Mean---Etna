@@ -1,0 +1,49 @@
+<html>
+<head>
+	<title>Airbus training</title>
+	<link rel="stylesheet" href="mean.css">
+</head>
+<body ng-app>
+<div id=connect>
+	 		<center>
+	 			<form method="POST" action="/:id" id="registerform">
+	 			E-Mail :<br>
+	 			<input type="text" name="p3"  ng-model='emailang' id="email" placeholder='prénom.nom@airbus.com' ng-pattern="/[a-zA-Z]+[.]+[a-zA-Z]+@airbus.com/" required"><br><br>
+	 			Number Position :<br>
+	 			<input type="number" name="p8" ng-model="num" id="num" placeholder='ex : 56417' required><br>
+	 			Site :<br>
+	  			  <select name="p7" id="select">
+	  			  	<option> Blagnac </option>
+	  			  	<option> Central Entity, Blagnac </option>
+	  			  	<option> Airbus Operations, Blagnac </option>
+	  			  	<option> Airbus France, Blagnac </option>
+	  			  	<option> Airbus Industry, Colomiers </option>
+	  			  	<option> Guynemer, Beijing </option>
+	  			  	<option> Training Center, Beijing </option>
+	  			  	<option> Airtac, Alabama </option>
+	  			  </select><br>
+	  			  Password :<br>
+	  			  <input type="password" name="p4" ng-model="password1" id="password1" required><br>
+	  			  Repeat Password :<br>
+	  			  <input type="password" name="p5" ng-model="password2" id="password2" required><br><br>
+	  			  <input type="button" value='Back' name="p5" ng-model="back" id="back">
+	  			  <input type="submit" value='Send' name="p6" ng-model="send" id="send">		  
+	 			</form>
+	 			<form method="POST" action="/" id="formulaire">
+	 			  Username :<br>
+	  			  <input type="text" name="p1" ng-model="username" id="login" placeholder='prénom.nom@airbus.com' required><br>
+	  			  Password :<br>
+	  			  <input type="password" name="p2" ng-model="password" id="password" required><br><br>
+	  			  <input type="submit" value="Connection">
+	  			</form>
+	  			<form>
+	  				<input type="button" name="register" ng-model="register" id="register" value="Register">
+	  			</form>
+	  		</center>
+	</div>
+</body>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="angular.js"></script>
+<script type="text/javascript" src="Angu.js"></script>
+<script type="text/javascript" src="jqFunction.js"></script>
+</html>

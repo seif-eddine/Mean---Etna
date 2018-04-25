@@ -1,0 +1,94 @@
+<html>
+<head>
+	<title>Airbus Training - Home</title>
+	<link rel="stylesheet" href="mean.css">
+</head>
+<body ng-app="todoCtrl">
+	<div id=Add>
+    <input type="button" value="Disconnect" id="disco">
+ 		<center>
+ 		 <h1>Deployment menu</h1>
+     <div id="deploiement">
+       <input type="button" value="Add a deployment/Formation" name="Add" id="AddDep"><br>
+       Search : <input type="search" ng-model="filtre" id="Searchf" placeholder="Search ex : Airline">
+       Search : <input type="search" ng-model="filtreICAO" id="Searchff">
+       Search by date :<input type="date"  ng-model="datef" id="Searchf" placeholder="Search ex : Airline"><br><br>
+       
+      <div id="AffDep" ng-controller="toCtrl">
+      </div>
+
+
+      <div id="AddD">
+      <form method="POST" action="/home/:dep">
+        <div id="icao">
+          ICAO :<br>
+          <input type="text" placeholder="ex : Paris Office" name="f1" required="required"><br><br>
+        </div>
+        Name of the airline :<br>
+        <input type="text" placeholder="ex : Airbus" name="f2" required="required"><br><br>
+        Login :<br>
+        <input type="text" name="f3" required="required"><br><br>
+        <select name="f4" required="required">
+          <option> Training </option>
+          <option> Deployment </option>
+          <option> Deployment and training</option>
+        </select><br><br>
+        <select name="f5" required="required">
+          <option> AirFASE </option>
+          <option> Airman </option>
+          <option> AirmanWeb </option>
+        </select><br><br>
+        Departus Date : <input type="date" placeholder="11/09/2012" name="f8" required="required"></br>
+        Return Date:  <input type="date" placeholder="11/09/2012" name="f10" required="required">
+        Time of Training :
+        <input style="width: 50px; height: 25px;" min="1" max="100" type="number" name="f11" required="required"><br><br>
+        Time of Deployment :
+        <input style="width: 50px; height: 25px;" min="1" max="100" type="number" name="f12" required="required"><br><br>
+        PassPort : <input type="file" name="f13" /><br>
+        Seconde passport : <input type="file" name="f14" /><br><br>
+        <input type="button" value="Cancel" name="f15" id="Cancel">
+        <input type="submit" value="Send" id="Send">
+      </form>
+      </div>
+     </div>
+     <div id="AffDep" ng-controller="toCtrl">
+      <TABLE BORDER="1"> 
+        <CAPTION> Deployment / Training </CAPTION> 
+        <TR> 
+          <TH> ICAO </TH> 
+          <TH> Airline </TH> 
+          <TH> Login </TH> 
+          <TH> Type </TH> 
+          <TH> Application </TH> 
+          <TH> Departus </TH>
+          <TH> Return </TH> 
+          <TH> Day Deployment </TH> 
+          <TH> Day Training </TH>
+          <th></th>
+        </TR> 
+        <tr ng-repeat="x in names | orderBy: 'created_at' |filter : filtre | filter : filtreICAO | limitTo: 20">
+          <td ng-style="myStyle" ng-model="name[x]"> {{ x.icao }} </td>
+          <td ng-style="myStyle" ng-model="names[x]"> {{ x.name_airline }} </td> 
+          <td ng-style="myStyle" ng-model="names[x]"> {{ x.login }} </td>
+          <td ng-style="myStyle" ng-model="names[x]"> {{ x.type }} </td>
+          <td ng-style="myStyle" ng-model="names[x]"> {{ x.application }} </td>
+          <td ng-style="myStyle" ng-model="names[x]"> {{ x.departus }} </td> 
+          <td ng-style="myStyle" ng-model="names[x]"> {{ x.return }} </td> 
+          <td ng-style="myStyle" ng-model="names[x]"> {{ x.tt }} </td> 
+          <td ng-style="myStyle" ng-model="names[x]"> {{ x.td }} </td>  
+          <td ng-hide="showme"><input type="button" value="Edit" name="Edit" id="Edit"></td>          
+          <td ng-hide="showme"><input type="button" value="Cancel" name="CancelD" ng-click="showme=true; comment=true; myStyle={'background-color':'#808080'}" id="CancelD" ></td>
+          <td ng-hide="showme"><input type="button" value="Suspend" name="Suspendd" ng-click="Suspend=true;showme=true; myStyle={'background-color':'red'}" id="Suspendd" ></td>
+          <td ng-show="comment">Comment : <input type="text" name=""></td>
+          <td ng-show="Suspend"><center><h6>Suspended</h6></center></td>
+          <td><input type="button" value="Delegate" name="Delegate" id="Delegate"></td>        
+        </tr>
+        </TABLE> 
+     </div>
+  	</center>
+</body>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="jqFunction.js"></script>
+<script type="text/javascript" src="angular.js"></script>
+<script type="text/javascript" src="Angu.js"></script>
+</html>
